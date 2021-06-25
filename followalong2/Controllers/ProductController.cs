@@ -13,8 +13,20 @@ namespace followalong2.Controllers
     {
         public IActionResult Index()
         {
-            HardCodedSampleDataRepository blah = new HardCodedSampleDataRepository();
-            return View(blah.GetAllProducts());
+            ProductsDAO products = new ProductsDAO();
+            return View(products.GetAllProducts());
+        }
+
+        public IActionResult SearchResults(string searchTerm)
+        {
+            ProductsDAO products = new ProductsDAO();
+            List<ProductModel> productList = products.SearchProducts(searchTerm);
+            return View("Index", productList);
+        }
+        
+        public IActionResult SearchForm()
+        {
+            return View();
         }
     }
 }
