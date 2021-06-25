@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31313.79
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "followalong2", "followalong2.csproj", "{52085B51-73EA-4AD5-8985-89259D4D7502}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{52085B51-73EA-4AD5-8985-89259D4D7502}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52085B51-73EA-4AD5-8985-89259D4D7502}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52085B51-73EA-4AD5-8985-89259D4D7502}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52085B51-73EA-4AD5-8985-89259D4D7502}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8F9E67A8-E351-4361-ABFF-B3AF9864DA85}
+	EndGlobalSection
+EndGlobal
