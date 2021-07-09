@@ -1,0 +1,55 @@
+﻿@model IEnumerable<followalong3.Models.ButtonModel>
+
+<style>
+    .game-button {
+        width:74px;
+        text-align:center;
+        border:none;
+    }
+    .game-button-image {
+        width:70%;
+    }
+    .button-zone {
+        display:flex;
+        flex-wrap:wrap;
+    }
+    .line-break {
+        flex-basis:100%;
+        height:0;
+    }
+    .button-label {
+        font-size:8px;
+        text-align:center;
+    }
+</style>
+
+@{ 
+    string[] imagenames = { "bluebutton.png", "greenbutton.png", "orangebutton.png", "pinkbutton.png", "redbutton.png" };
+}
+
+<form>
+    <div class="button-zone">
+
+        @for (int i = 0; i < Model.Count(); i++)
+        {
+            @if (i % 5 == 0)
+            {
+                <div class="line-break"></div>
+            }
+            <div class="oneButton" id="@i">
+                <button class="game-button" name="buttonNumber" value="@Model.ElementAt(i).Id" type="submit" asp-controller="button" asp-action="HandleButtonClick">
+                <img class="game-button-image" src="~/img/@imagenames[Model.ElementAt(i).ButtonState]" />
+
+                <div class="button-label">
+                    @Model.ElementAt(i).Id | @Model.ElementAt(i).ButtonState
+                </div>
+            </button>
+            </div>
+        }
+
+    </div>
+</form>
+
+<div id="messageArea">
+    <p>Try and get all the buttons to be the same color</p>
+</div>
