@@ -1,0 +1,29 @@
+﻿@model IEnumerable<followalong4.Models.CustomerModel>
+
+<style>
+    ul {
+        list-style-type:none;
+    }
+
+    #customerInformationArea {
+        border:1px solid black;
+        margin:10px;
+        padding:10px;
+    }
+</style>
+<form asp-action="ShowOnePerson" asp-controller="Customer">
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li>
+                <input class="customerRadio" type="radio" name="Id" id="Id" value="@item.Id" />
+                <label>@item.Name</label>
+            </li>
+        }
+    </ul>
+    <input type="submit" id="selectCustomer"/>
+</form>
+
+<div id="customerInformationArea">
+    <p>Display customer information</p>
+</div>
