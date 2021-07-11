@@ -125,3 +125,5 @@ C:\Users\chees\source\repos\followalong2\obj\Debug\net5.0\Razor\Views\Shared\_na
 C:\Users\chees\source\repos\followalong2\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\chees\source\repos\followalong2\obj\Debug\net5.0\followalong2.csproj.AssemblyReference.cache
 C:\Users\chees\source\repos\followalong2\obj\Debug\net5.0\Razor\Views\Product\ShowDetails.cshtml.g.cs
+C:\Users\chees\source\repos\followalong2\obj\Debug\net5.0\Razor\Views\Product\ShowEdit.cshtml.g.cs
+C:\Users\chees\source\repos\followalong2\obj\Debug\net5.0\Razor\Views\Product\_productCard.cshtml.g.cs

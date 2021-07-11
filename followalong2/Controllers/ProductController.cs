@@ -29,6 +29,11 @@ namespace followalong2.Controllers
             return View();
         }
 
+        public IActionResult ShowOneProduct()
+        {
+            return View(repository.Get)
+        }
+
         public IActionResult ShowDetails(int id)
         {
             ProductsDAO product = new ProductsDAO();
