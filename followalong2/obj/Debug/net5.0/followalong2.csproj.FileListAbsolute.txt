@@ -127,3 +127,4 @@ C:\Users\chees\source\repos\followalong2\obj\Debug\net5.0\followalong2.csproj.As
 C:\Users\chees\source\repos\followalong2\obj\Debug\net5.0\Razor\Views\Product\ShowDetails.cshtml.g.cs
 C:\Users\chees\source\repos\followalong2\obj\Debug\net5.0\Razor\Views\Product\ShowEdit.cshtml.g.cs
 C:\Users\chees\source\repos\followalong2\obj\Debug\net5.0\Razor\Views\Product\_productCard.cshtml.g.cs
+C:\Users\chees\source\repos\followalong2\obj\Debug\net5.0\Razor\Views\Product\ShowCreateForm.cshtml.g.cs

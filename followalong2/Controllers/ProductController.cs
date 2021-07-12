@@ -11,17 +11,20 @@ namespace followalong2.Controllers
 {
     public class ProductController : Controller
     {
+        ProductsDAO repository;
+        public ProductController()
+        {
+            repository = new ProductsDAO();
+        }
+
         public IActionResult Index()
         {
-            ProductsDAO products = new ProductsDAO();
-            return View(products.GetAllProducts());
+            return View(repository.GetAllProducts());
         }
 
         public IActionResult SearchResults(string searchTerm)
         {
-            ProductsDAO products = new ProductsDAO();
-            List<ProductModel> productList = products.SearchProducts(searchTerm);
-            return View("Index", productList);
+            return View("Index", repository.SearchProducts(searchTerm));
         }
         
         public IActionResult SearchForm()
@@ -29,38 +32,49 @@ namespace followalong2.Controllers
             return View();
         }
 
-        public IActionResult ShowOneProduct()
-        {
-            return View(repository.Get)
-        }
-
         public IActionResult ShowDetails(int id)
         {
-            ProductsDAO product = new ProductsDAO();
-            ProductModel foundProduct = product.GetProductById(id);
-            return View(foundProduct);
+            return View(repository.GetProductById(id));
+        }
+
+        public IActionResult ShowDetailsJSON(int id)
+        {
+            return Json(repository.GetProductById(id));
         }
 
         public IActionResult Edit(int id)
         {
-            ProductsDAO product = new ProductsDAO();
-            ProductModel foundProduct = product.GetProductById(id);
-            return View("ShowEdit", foundProduct);
+            return View("ShowEdit", repository.GetProductById(id));
         }
 
         public IActionResult ProcessEdit(ProductModel product)
         {
-            ProductsDAO products = new ProductsDAO();
-            products.Update(product);
-            return View("Index", products.GetAllProducts());
+            repository.Update(product);
+            return View("Index", repository.GetAllProducts());
         }
 
-        public IActionResult Delete (int id)
+        public IActionResult ProcessEditReturnPartial(ProductModel product)
         {
-            ProductsDAO products = new ProductsDAO();
-            ProductModel product = products.GetProductById(id);
-            products.Update(product);
-            return View("Index", products.GetAllProducts());
+            repository.Update(product);
+            return PartialView("_productCard", product);
+        }
+
+        public IActionResult Delete(int id)
+        {
+            ProductModel product = repository.GetProductById(id);
+            repository.Delete(product);
+            return View("Index", repository.GetAllProducts());
+        }
+
+        public IActionResult Create()
+        {
+            return View("ShowCreateForm");
+        }
+
+        public IActionResult ProcessInsert(ProductModel product)
+        {
+            repository.Insert(product);
+            return View("Index", repository.GetAllProducts());
         }
     }
 }
