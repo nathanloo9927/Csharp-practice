@@ -10,7 +10,7 @@ namespace followalong2.Services
     public class HardCodedSampleDataRepository : IProductDataService
     {
         static List<ProductModel> productsList = new List<ProductModel>();
-        public int Delete(ProductModel product)
+        public bool Delete(ProductModel product)
         {
             throw new NotImplementedException();
         }

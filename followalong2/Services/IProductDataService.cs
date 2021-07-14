@@ -12,7 +12,7 @@ namespace followalong2.Services
         List<ProductModel> SearchProducts(string searchTerm);
         ProductModel GetProductById(int id);
         int Insert(ProductModel product);
-        int Delete(ProductModel product);
+        bool Delete(ProductModel product);
         int Update(ProductModel product);
     }
 }

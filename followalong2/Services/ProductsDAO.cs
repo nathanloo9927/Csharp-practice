@@ -10,7 +10,7 @@ namespace followalong2.Services
     public class ProductsDAO : IProductDataService
     {
         string connstr = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog = Test; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-        public int Delete(ProductModel product)
+        public bool Delete(ProductModel product)
         {
             int newIdNumber = -1;
             string sqlstmt = "DELETE FROM dbo.Products WHERE Id = @Id";
@@ -28,7 +28,7 @@ namespace followalong2.Services
                     Console.WriteLine(ex.Message);
                 }
             }
-            return newIdNumber;
+            return newIdNumber > 0;
         }
 
         public List<ProductModel> GetAllProducts()
@@ -93,7 +93,26 @@ namespace followalong2.Services
 
         public int Insert(ProductModel product)
         {
-            throw new NotImplementedException();
+            int newIdnumber = -1;
+
+            string sqlstmt = "INSERT INTO dbo.Products (Name, Price, Description) VALUES (@Name, @Price, @Description)";
+            using (SqlConnection conn = new SqlConnection(connstr))
+            {
+                SqlCommand cmd = new SqlCommand(sqlstmt, conn);
+                cmd.Parameters.AddWithValue("@Name", product.Name);
+                cmd.Parameters.AddWithValue("@Price", product.Price);
+                cmd.Parameters.AddWithValue("@Description", product.Description);
+                try
+                {
+                    conn.Open();
+                    newIdnumber = Convert.ToInt32(cmd.ExecuteScalar());
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            return newIdnumber;
         }
 
         public List<ProductModel> SearchProducts(string searchTerm)
